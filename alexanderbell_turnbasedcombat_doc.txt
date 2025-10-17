@@ -20,10 +20,10 @@ class character:
 		hit = number 1-100
 		if hit: 'within hit chance'
 			damage = int between 1 & char2.maxDamage
-			damage_dealt = |char1.armor - damage|
+			damage_dealt = char1.armor - damage
 
 			print(f"{char2.name} hits {char1.name}...")
-			print(f"for {damage_dealt} hit points")
+			print(f"for {damage} hit points")
 			print(f"{char1 name}'s armor can reduce damage by {char1 armor} points")
 
 			if damage_dealt > 0:
@@ -34,13 +34,18 @@ class character:
 	def fight(char1,char2):
 		keepGoing = True
 		while:
-			new_round = input("press enter for a new round...")
-			if new round:
-				damage_to_char1 = hit(char1,char2)
-				damage_to_char2 = hit(char2,char1)
+			input("press enter for a new round...")
+			damage_to_char1 = hit(char1,char2)
+			new_health_char1 = health_char1 - damage_to_char1
+			if char 1 dead:
+				stop loop
+				print(char 2 wins!)
 
-				char1_health = damage_to_char1
-
+			damage_to_char2 = hit(char2,char1)
+			new_health_char2 = health_char2 - damage_to_char2
+			if char 2 dead:
+				stop loop
+				print(char 1 wins!)
 
 
 def main():
@@ -73,7 +78,7 @@ main():
 	char1.printStats()
 	char2.printStats()
 
-	tbc.fight(char1,char2)
+	fight(char1,char2)
 
 if __name__ == "__main__":
 	main()
